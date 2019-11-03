@@ -1,0 +1,25 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makiyama-tky/ToDo.git"
+  },
+  "author": "Masaya Akiyama <apbom39tq@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/makiyama-tky/ToDo/issues"
+  },
+  "homepage": "https://github.com/makiyama-tky/ToDo#readme",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "mongodb": "^3.3.3"
+  }
+}

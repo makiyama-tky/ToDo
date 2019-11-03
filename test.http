@@ -1,0 +1,14 @@
+GET http://localhost:3000/
+
+
+###
+POST http://localhost:3000/ HTTP/1.1
+content-type: text/plain
+
+play
+
+###
+PATCH http://localhost:3000/5dbe7cc74fc920812ca11a68
+content-type: application/json
+
+{ "done": true }
