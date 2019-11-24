@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,31 @@
   },
   "homepage": "https://github.com/makiyama-tky/ToDo#readme",
   "dependencies": {
-    "faker": "^4.1.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@babel/register": "^7.7.0",
+    "@types/jest": "^24.0.23",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-router": "^7.0.42",
+    "@types/mongodb": "^3.3.11",
+    "ajv": "^6.10.2",
+    "fs-extra": "^8.1.0",
+    "glob-promise": "^3.4.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
-    "mongodb": "^3.3.3"
+    "koa-router": "^7.4.0",
+    "mongodb": "^3.3.3",
+    "pify": "^4.0.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "editor.formatOnSave": true
+  },
+  "devDependencies": {
+    "axios": "^0.19.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.2"
   }
 }

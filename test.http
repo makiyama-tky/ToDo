@@ -1,14 +1,42 @@
-GET http://localhost:3000/
+GET http://localhost:3000/items
 
 
 ###
-POST http://localhost:3000/ HTTP/1.1
+POST http://localhost:3000/items HTTP/1.1
 content-type: text/plain
 
-play
+work
 
 ###
-PATCH http://localhost:3000/5dbe7cc74fc920812ca11a68
+OPTIONS http://localhost:3000/items/5dc406d8e8a38b7098b6ae5c
+
+###
+# Patch to false
+PATCH http://localhost:3000/items/5dc406d8e8a38b7098b6ae5c
 content-type: application/json
 
 { "done": true }
+
+###
+# Patch to true
+PATCH http://localhost:3000/items/5dccbf1bc32e5f5978e99905
+content-type: application/json
+
+{ "done": true }
+
+###
+# Nonexistent item ID
+PATCH http://localhost:3000/items/5dc406d8e823455098b6ae5c
+content-type: application/json
+
+{ "done": false }
+
+###
+# Nonexistent item ID
+PATCH http://localhost:3000/items/abcde
+content-type: application/json
+
+{ "done": false }
+
+###
+DELETE http://localhost:3000/items/5dc406d8e8a38b7098b6ae5c
