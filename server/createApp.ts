@@ -5,9 +5,13 @@ import { handleGet, handlePost, handlePatch, handleDelete } from './handlers';
 import validateId from './validateId';
 import errorHandler from './errorHandler';
 import { Db } from 'mongodb';
+import koaStatic from 'koa-static';
+import path from 'path';
 
 const createApp: (db: Db) => Koa = db => {
   const app = new Koa();
+  const root = path.resolve(__dirname, '../front/dist');
+  app.use(koaStatic(root));
   app.use(errorHandler());
   app.use(bodyParser({ enableTypes: ['json', 'text'] }));
   const router = new Router();
