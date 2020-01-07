@@ -32,6 +32,7 @@
     "@types/react-dom": "^16.9.4",
     "ajv": "^6.10.2",
     "babel-loader": "^8.0.6",
+    "dotenv": "^8.2.0",
     "fs-extra": "^8.1.0",
     "glob-promise": "^3.4.0",
     "koa": "^2.11.0",

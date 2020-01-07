@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import createApp from './createApp';
 import connectDb from './connectDb';
 import Koa from 'koa';
