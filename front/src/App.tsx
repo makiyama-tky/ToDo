@@ -10,13 +10,18 @@ export const Item: React.FC<{
   const { todoItem, onCheckClick, onDeleteClick } = props;
   return (
     <li>
-      <input
-        type="checkbox"
-        onChange={() => onCheckClick(todoItem._id, !todoItem.done)}
-        checked={todoItem.done}
-      />
-      {todoItem.name}
-      <button onClick={() => onDeleteClick(todoItem._id)}>削除</button>
+      <label>
+        <input
+          type="checkbox"
+          className="checkbox"
+          onChange={() => onCheckClick(todoItem._id, !todoItem.done)}
+          checked={todoItem.done}
+        />
+        {todoItem.name}
+      </label>
+      <button className="delButton" onClick={() => onDeleteClick(todoItem._id)}>
+        <i className="fas fa-trash-alt"></i>
+      </button>
     </li>
   );
 };
@@ -54,25 +59,30 @@ export const App: React.FC = props => {
 
   return (
     <main>
-      <h1>やること</h1>
+      <div>
+        <h1>ToDo</h1>
+      </div>
       <input
         type="text"
+        className="textbox"
         value={newName}
         onChange={event => setNewName(event.target.value)}
       />
-      <button onClick={handleCreateClick} disabled={newName === ''}>
-        入力
+      <button onClick={handleCreateClick} className="addButton">
+        Add ToDo
       </button>
-      <ul>
-        {todoItems.map(todoItem => (
-          <Item
-            key={todoItem._id}
-            onCheckClick={handleCheckClick}
-            todoItem={todoItem}
-            onDeleteClick={handleDeleteClick}
-          />
-        ))}
-      </ul>
+      <div className="container">
+        <ul className="item">
+          {todoItems.map(todoItem => (
+            <Item
+              key={todoItem._id}
+              onCheckClick={handleCheckClick}
+              todoItem={todoItem}
+              onDeleteClick={handleDeleteClick}
+            />
+          ))}
+        </ul>
+      </div>
     </main>
   );
 };
