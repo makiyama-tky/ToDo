@@ -65,6 +65,13 @@ describe('POST', () => {
     const res = await axios.post('/items', { apple: 7 });
     expect(res.status).toBe(400);
   });
+
+  test('error on no body', async () => {
+    const res = await axios.post('/items', '   ', {
+      headers: { 'content-type': 'text/plain' }
+    });
+    expect(res.status).toBe(400);
+  });
 });
 
 describe('PATCH', () => {

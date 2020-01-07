@@ -14,9 +14,11 @@ export const handleGet: CollectionMiddleware = collection => {
 
 export const handlePost: CollectionMiddleware = collection => {
   return async (ctx, next) => {
-    const name = ctx.request.body;
-    if (typeof name !== 'string') ctx.throw(400);
-    if (name.length > 100) ctx.throw(400);
+    const inputName = ctx.request.body;
+    if (typeof inputName !== 'string') ctx.throw(400);
+    if (inputName.length > 100) ctx.throw(400);
+    const name = inputName.trim();
+    if (name === '') ctx.throw(400);
     await collection.insertOne({ name, done: false });
     ctx.body = null;
   };
