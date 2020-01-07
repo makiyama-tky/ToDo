@@ -1,7 +1,9 @@
 import { MongoClient } from 'mongodb';
 
 const connectDb = async () => {
-  const client = await MongoClient.connect('mongodb://127.0.0.1:27017', {
+  if (!process.env.TODO_MONGO_URL)
+    throw new Error('TODO_MONGO_URL is not a string');
+  const client = await MongoClient.connect(process.env.TODO_MONGO_URL, {
     useUnifiedTopology: true
   });
   return client;
